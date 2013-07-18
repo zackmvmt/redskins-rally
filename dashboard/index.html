@@ -4,9 +4,63 @@
 		<title>Redskins Rally - Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<style>body { padding-top: 60px; }</style>
 	</head>
 	<body>
-		<h1>Hello World!</h1>
+
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a href="#" class="brand">Redskins Rally Dashboard</a>
+					<div class="pull-right">
+						<ul class="nav">
+							<li><a href="#add">Add New Location</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<h1>Locations</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Venue Name</th>
+						<th>City</th>
+						<th>State</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: locs">
+					<tr>
+						<td data-bind="text: name"></td>
+						<td data-bind="text: city"></td>
+						<td data-bind="text: state"></td>
+						<td>
+							<div class="pull-right">
+								<button class="btn" data-bind="click: $root.editLoc">Edit</button>
+								<button class="btn btn-danger" data-bind="click: $root.removeLoc">Delete</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="locationModal modal fade" data-bind="with: activeLoc">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3>Edit: <span data-bind="text: name"></span></h3>
+			</div>
+			<div class="modal-body">
+				<p>the modal body goes here</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+				<a href="#" class="btn btn-primary">Save Location</a>
+			</div>
+		</div>
+
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/knockout-2.3.0.js"></script>
