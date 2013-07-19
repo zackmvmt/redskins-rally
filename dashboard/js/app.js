@@ -11,7 +11,8 @@ ko.bindingHandlers.foreachprop = {
 	getProps: function(obj) {
 		var props = [];
 		for (key in obj) {
-			if (obj.hasOwnProperty(key))
+			// NOTE: the saveLoc check is not abstracted
+			if (obj.hasOwnProperty(key) && key != 'saveLoc')
 				props.push({ key: key, value: obj[key] });
 		}
 		return props;
@@ -56,8 +57,12 @@ function AppViewModel() {
 		self.locs.remove(loc);
 	};
 	self.editLoc = function(loc) {
-		console.log(loc);
 		self.activeLoc(loc);
+		$('.locationModal').modal('toggle');
+	};
+	self.newLoc = function() {
+		// TODO...fix this
+		self.activeLoc = new LocationModel({});
 		$('.locationModal').modal('toggle');
 	};
 
