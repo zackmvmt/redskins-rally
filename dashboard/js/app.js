@@ -6,6 +6,24 @@ var database = [
 	{ name: 'Kito\'s Cave', city: 'Petersburg', state: 'Alaska' }
 ];
 
+// custom binding to loop through an objects properties
+ko.bindingHandlers.foreachprop = {
+	getProps: function(obj) {
+		var props = [];
+		for (key in obj) {
+			if (obj.hasOwnProperty(key))
+				props.push({ key: key, value: obj[key] });
+		}
+		return props;
+	},
+	init: function(el, val) {
+		var value = ko.utils.unwrapObservable(val());
+		var props = ko.bindingHandlers.foreachprop.getProps(value);
+		ko.applyBindingsToNode(el, { foreach: props });
+		return { controlsDescendantBindings: true };
+	}
+}
+
 function LocationModel(params) {
 
 	var self = this;
@@ -15,6 +33,10 @@ function LocationModel(params) {
 	self.name = ko.observable(params.name);
 	self.city = ko.observable(params.city);
 	self.state = ko.observable(params.state);
+
+	self.saveLoc = function() {
+		// TODO...server
+	};
 
 };
 
@@ -32,11 +54,12 @@ function AppViewModel() {
 	self.removeLoc = function(loc) {
 		// TODO...server
 		self.locs.remove(loc);
-	}
+	};
 	self.editLoc = function(loc) {
+		console.log(loc);
 		self.activeLoc(loc);
 		$('.locationModal').modal('toggle');
-	}
+	};
 
 	// routes
 
