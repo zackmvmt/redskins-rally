@@ -12,5 +12,9 @@
 		echo json_encode($locs);
 	});
 
+	$app->post('/locations', function() {
+		// TODO figure out how to get the post variables
+	});
+
 	// start the api
 	$app->run();
