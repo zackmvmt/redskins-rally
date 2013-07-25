@@ -7,8 +7,9 @@
 	$app = new \Slim\Slim();
 
 	// define routes
-	$app->get('/', function() {
-		echo 'hello world and stuff';
+	$app->get('/locations', function() {
+		$locs = ORM::for_table('locations')->find_array();
+		echo json_encode($locs);
 	});
 
 	// start the api
