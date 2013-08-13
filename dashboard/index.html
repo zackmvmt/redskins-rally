@@ -8,6 +8,7 @@
 	</head>
 	<body>
 
+		<!-- NAVBAR -->
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
@@ -21,6 +22,7 @@
 			</div>
 		</div>
 
+		<!-- LOCATION LIST -->
 		<div class="container">
 			<h1>Locations</h1>
 			<table class="table">
@@ -47,6 +49,7 @@
 			</table>
 		</div>
 
+		<!-- NEW / EDIT LOCATION MODAL -->
 		<div class="locationModal modal fade" data-bind="with: activeLoc">
 			<div class="modal-header">
 				<button type="button" class="close" data-bind="click: saveLoc" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -67,9 +70,11 @@
 			</div>
 		</div>
 
+		<!-- SCRIPTS -->
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/knockout-2.3.0.js"></script>
-		<script src="js/app.js"></script>
+		<script src="../common/js/location.model.js"></script>
+		<script src="js/dashboard.js"></script>
 	</body>
 </html>
