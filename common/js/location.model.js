@@ -23,18 +23,30 @@ function LocationModel(params) {
 	 * DASHBOARD FUNCTIONS
 	 * ********** ********** */
 
-	// update information about the location
+	// update information about the location or make a new location
 	self.saveLoc = function() {
-		// TODO: determine if this is new or old
+		$('.locationModal .btn').hide();
 		var fields = {};
 		$.each(self.parent.locProps, function(index, key) { fields[key] = self[key](); });
+		var type = 'POST';
+		var url = '../api/locations';
+		// if it's an existing model, update the method and the url
+		if (self.hasOwnProperty('id')) {
+			type = 'PUT';
+			url += '/' + self.id();
+		}
 		$.ajax({
-			type: 'PUT', // or post!
-			url: '../api/locations/' + self.id(),
+			type: type,
+			url: url,
 			data: fields,
 			dataType: 'json',
 			success: function(data) {
+				if (!self.hasOwnProperty('id')) {
+					self.id = ko.observable(data.id);
+					self.parent.locs.push(self);
+				}
 				$('.locationModal').modal('toggle');
+				$('.locationModal .btn').show();
 			}
 		});
 	};
@@ -47,9 +59,11 @@ function LocationModel(params) {
 
 	// if the user goes to edit, and then cancels, reset the information
 	self.resetLoc = function() {
-		$.each(self.values, function(key, value) {
-			self[key](value);
-		});
+		if (self.hasOwnProperty('id')) {
+			$.each(self.values, function(key, value) { self[key](value); });
+		} else {
+			delete self; // its a new model, just delete it
+		}
 	};
 
 	// when the user clicks on the delete button, remove this location

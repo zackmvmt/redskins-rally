@@ -23,8 +23,19 @@
 	 * ********** ********** */
 
 	// add a new location
-	$app->post('/locations', function() {
-		// TODO figure out how to get the post variables
+	$app->post('/locations', function() use ($app) {
+		// get the information
+		$req = $app->request();
+		$post = $req->post();
+		// make a new location
+		$loc = ORM::for_table('locations')->create();
+		// add in fields
+		foreach ($post as $key => $value) {
+			$loc->$key = $value;
+		}
+		// save, get the id, and return it to the front end
+		$loc->save();
+		echo json_encode(array('success' => true, 'id' => $loc->id()));
 	});
 
 
@@ -45,7 +56,7 @@
 		}
 		// save
 		$loc->save();
-		echo json_encode(true);
+		echo json_encode(array('success' => true));
 	});
 
 

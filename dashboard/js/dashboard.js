@@ -58,7 +58,15 @@ function DashViewModel() {
 
 	// make a new location and trigger the popup
 	self.newLoc = function() {
-		self.activeLoc(new LocationModel({ name: 'New Location' }));
+		// set up an empty model
+		var props = {};
+		$.each(self.locProps, function(i, prop) { props[prop] = ''; });
+		props.name = 'New Location';
+		var loc = new LocationModel(props);
+		loc.parent = self;
+		self.setIgnoredFields(loc);
+		self.activeLoc(loc);
+		// trigger the popup
 		$('.locationModal').modal('toggle');
 	};
 
@@ -79,14 +87,17 @@ function DashViewModel() {
 			}));
 			self.locProps.splice(self.locProps.indexOf('id'), 1);
 			// generate a list of ignored values (to avoid every prop loading in modal)
-			$.each(self.locs(), function(index, loc) {
-				loc.ignoredFields = [];
-				for (key in loc) {
-					if (self.locProps.indexOf(key) == -1) loc.ignoredFields.push(key);
-				}
-			});
+			$.each(self.locs(), function(index, loc) { self.setIgnoredFields(loc); });
 		}
 	});
+
+	// helper function that sets the ignored fields for a given model
+	self.setIgnoredFields = function(loc) {
+		loc.ignoredFields = [];
+		for (key in loc) {
+			if (self.locProps.indexOf(key) == -1) loc.ignoredFields.push(key);
+		}
+	}
 
 };
 
