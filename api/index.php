@@ -34,7 +34,18 @@
 
 	// edit a specific location
 	$app->put('/locations/:id', function($id) use ($app) {
-		echo json_encode('put function not written');
+		// get the information
+		$req = $app->request();
+		$post = $req->post();
+		// find the item
+		$loc = ORM::for_table('locations')->find_one($id);
+		// update the information
+		foreach ($post as $key => $value) {
+			$loc->$key = $value;
+		}
+		// save
+		$loc->save();
+		echo json_encode(true);
 	});
 
 
@@ -44,7 +55,9 @@
 
 	// delete a specific location
 	$app->delete('/locations/:id', function($id) use ($app) {
-		echo json_encode('delete function not written');
+		$loc = ORM::for_table('locations')->find_one($id);
+		$loc->delete();
+		echo json_encode(true);
 	});
 	
 
