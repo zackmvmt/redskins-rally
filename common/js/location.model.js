@@ -10,10 +10,13 @@ function LocationModel(params) {
 
 	var self = this;
 
-	// TODO...map values instead of hardcoding them
-	self.name = ko.observable(params.name);
-	self.city = ko.observable(params.city);
-	self.state = ko.observable(params.state);
+	// properties that belong to this model, but shouldnt be displayed anywhere
+	self.ignoredFields = ['ignoredFields', 'saveLoc', 'editLoc', 'removeLoc', 'parent'];
+
+	// given the params, add the properties in as observables
+	$.each(params, function(key, value) {
+		self[key] = ko.observable(value);
+	});
 
 	/* ********** **********
 	 * DASHBOARD FUNCTIONS

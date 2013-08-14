@@ -2,20 +2,21 @@
  * FOREACHPROP
  * Custom handler that loops through an objects properties and
  * returns an array of key value pairs
- * NOTE: This is not fully abstracted out (see saveLoc)
+ * NOTE: you can add an 'ignoredFields' property to the object to omit certain keys
  * ********** ********** */
 ko.bindingHandlers.foreachprop = {
-
-	// this isn't abstracted...the fields that are ignored
-	ignoredFields: ['saveLoc', 'editLoc', 'removeLoc', 'parent'],
-
 	getProps: function(obj) {
 		var props = [];
 		for (key in obj) {
-			// NOTE: the saveLoc check is not abstracted
-			var value = obj[key];
-			if (obj.hasOwnProperty(key) && this.ignoredFields.indexOf(key) == -1)
+			var showKey = true;
+			if (!obj.hasOwnProperty(key))
+				showKey = false;
+			if (obj.hasOwnProperty('ignoredFields') && obj.ignoredFields.indexOf(key) != -1)
+				showKey = false;
+			if (showKey) {
+				var value = obj[key];
 				props.push({ key: key, value: obj[key] });
+			}
 		}
 		return props;
 	},
