@@ -43,9 +43,14 @@ function DashViewModel() {
 
 	var self = this;
 
+	// all the locations
 	self.locs = ko.observableArray();
 
+	// the active location (for the modal to show)
 	self.activeLoc = ko.observable();
+
+	// the properties each location has (to show an empty form)
+	self.locProps = [];
 
 	/* ********** **********
 	 * FUNCTIONS
@@ -53,8 +58,7 @@ function DashViewModel() {
 
 	// make a new location and trigger the popup
 	self.newLoc = function() {
-		// TODO...fix this
-		self.activeLoc = new LocationModel({});
+		self.activeLoc(new LocationModel({ name: 'New Location' }));
 		$('.locationModal').modal('toggle');
 	};
 
@@ -65,11 +69,22 @@ function DashViewModel() {
 		dataType: 'json',
 		success: function(data) {
 			// on success, add all the locations to the array
-			self.locs($.map(data, function(loc) {
+			self.locs($.map(data, function(loc, i) {
+				// for the first, store all the keys (except id)
+				if (i == 0) self.locProps = $.map(loc, function(val, key) { return key; });
+				// make a new model and save the information
 				var new_loc = new LocationModel(loc);
 				new_loc.parent = self;
 				return new_loc;
 			}));
+			self.locProps.splice(self.locProps.indexOf('id'), 1);
+			// generate a list of ignored values (to avoid every prop loading in modal)
+			$.each(self.locs(), function(index, loc) {
+				loc.ignoredFields = [];
+				for (key in loc) {
+					if (self.locProps.indexOf(key) == -1) loc.ignoredFields.push(key);
+				}
+			});
 		}
 	});
 

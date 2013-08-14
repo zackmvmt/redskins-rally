@@ -10,10 +10,6 @@ function LocationModel(params) {
 
 	var self = this;
 
-	// properties that belong to this model, but shouldnt be displayed anywhere
-	self.ignoredFields = ['ignoredFields', 'id', 'values', 'parent',
-		'saveLoc', 'editLoc', 'removeLoc', 'resetLoc'];
-
 	// stores initial values so user can reset back (canceling in edit)
 	self.values = {};
 
@@ -31,9 +27,7 @@ function LocationModel(params) {
 	self.saveLoc = function() {
 		// TODO: determine if this is new or old
 		var fields = {};
-		for (key in self.values) {
-			if (key != 'id') fields[key] = self[key]();
-		}
+		$.each(self.parent.locProps, function(index, key) { fields[key] = self[key](); });
 		$.ajax({
 			type: 'PUT', // or post!
 			url: '../api/locations/' + self.id(),
