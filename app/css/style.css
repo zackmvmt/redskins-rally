@@ -52,13 +52,13 @@ body {
   .content-left .featured-bar {
     width: 100%;
     height: 120px;
-    background-color: #707070;
+    background-color: #4A4A4A;
     border: 1px solid #850001;
     border-left: 0; }
   .content-left .ad-bud-left {
     width: 100%;
     height: 250px;
-    background-color: #707070;
+    background-color: #4A4A4A;
     position: absolute;
     border: 1px solid #850001;
     border-left: 0;
@@ -77,7 +77,20 @@ body {
     background: -moz-linear-gradient(top, #954243, #7b1314);
     background: -ms-linear-gradient(top, #954243, #7b1314);
     background: -o-linear-gradient(top, #954243, #7b1314);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$c1', endColorstr='$c2'); }
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$c1', endColorstr='$c2');
+    cursor: pointer; }
+    .content-left .enter-start p {
+      margin: 0;
+      padding: 0;
+      width: 255px;
+      height: 75px;
+      padding-top: 35px;
+      padding-left: 45px;
+      font-family: 'Carrois Gothic SC', sans-serif;
+      font-size: 12px;
+      background-image: url("../img/bg_enter.png");
+      background-repeat: no-repeat;
+      text-align: center; }
 
 .content-top-center {
   width: 468px;
@@ -89,13 +102,41 @@ body {
   .content-top-center .ad-bud-top {
     width: 468px;
     height: 60px;
-    background-color: #707070;
+    background-color: #4A4A4A;
     color: #FFF; }
   .content-top-center .location-controls {
-    width: 468px;
+    width: 444px;
+    padding: 0 12px;
     height: 45px;
     background-color: #000;
-    color: #FFF; }
+    color: #FFF;
+    background-color: #954243;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#954243), to(#7b1314));
+    background: -webkit-linear-gradient(top, #954243, #7b1314);
+    background: -moz-linear-gradient(top, #954243, #7b1314);
+    background: -ms-linear-gradient(top, #954243, #7b1314);
+    background: -o-linear-gradient(top, #954243, #7b1314);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$c1', endColorstr='$c2'); }
+    .content-top-center .location-controls .control {
+      width: 135px;
+      height: 29px;
+      float: left;
+      margin: 7px 6px;
+      background-image: url("../img/sprite_btns.png");
+      background-repeat: no-repeat;
+      cursor: pointer; }
+    .content-top-center .location-controls .find-bar {
+      background-position: -130px -13px; }
+      .content-top-center .location-controls .find-bar:hover {
+        background-position: -130px -143px; }
+    .content-top-center .location-controls .view-list {
+      background-position: -130px -57px; }
+      .content-top-center .location-controls .view-list:hover {
+        background-position: -130px -187px; }
+    .content-top-center .location-controls .add-bar {
+      background-position: -130px -100px; }
+      .content-top-center .location-controls .add-bar:hover {
+        background-position: -130px -231px; }
 
 .content-right {
   float: right;
@@ -103,7 +144,73 @@ body {
   height: 105px;
   background-color: #ccc;
   position: relative;
-  z-index: 10; }
+  z-index: 10;
+  font-family: 'Carrois Gothic SC', sans-serif; }
+  .content-right .connect {
+    width: 247px;
+    height: 28px;
+    padding: 3px;
+    background-color: #954243;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#954243), to(#7b1314));
+    background: -webkit-linear-gradient(top, #954243, #7b1314);
+    background: -moz-linear-gradient(top, #954243, #7b1314);
+    background: -ms-linear-gradient(top, #954243, #7b1314);
+    background: -o-linear-gradient(top, #954243, #7b1314);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$c1', endColorstr='$c2');
+    color: #FFF; }
+    .content-right .connect .label {
+      font-size: 12px;
+      float: left;
+      width: 85px; }
+      .content-right .connect .label a {
+        color: #FFF; }
+    .content-right .connect ul.social-links {
+      padding: 0;
+      margin: 0;
+      list-style: none; }
+      .content-right .connect ul.social-links li {
+        float: left;
+        width: 26px;
+        height: 26px;
+        margin-right: 6px;
+        cursor: pointer;
+        background-image: url("../img/sprite_social.png");
+        background-repeat: no-repeat; }
+        .content-right .connect ul.social-links li.twitter {
+          background-position: -34px 0; }
+        .content-right .connect ul.social-links li.instagram {
+          background-position: -69px 0; }
+        .content-right .connect ul.social-links li.foursquare {
+          background-position: -104px 0; }
+        .content-right .connect ul.social-links li.email {
+          background-position: -138px 0; }
+  .content-right .rally-parties {
+    height: 71px;
+    background-color: #ffcd1e;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffcd1e), to(#ffc200));
+    background: -webkit-linear-gradient(top, #ffcd1e, #ffc200);
+    background: -moz-linear-gradient(top, #ffcd1e, #ffc200);
+    background: -ms-linear-gradient(top, #ffcd1e, #ffc200);
+    background: -o-linear-gradient(top, #ffcd1e, #ffc200);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$c1', endColorstr='$c2'); }
+    .content-right .rally-parties .rally-wrapper {
+      width: 100%;
+      height: 100%;
+      background-image: url("../img/bg_rally.png");
+      background-repeat: no-repeat;
+      background-position: 5px 0px; }
+    .content-right .rally-parties .dont-miss {
+      font-size: 19px;
+      padding-top: 1px;
+      margin-left: 55px; }
+    .content-right .rally-parties a.see-all {
+      color: #000;
+      text-decoration: underline;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      margin-left: 15px; }
 
 .content-bottom {
   width: 100%;
@@ -114,8 +221,32 @@ body {
   border-top: 4px solid #F2A82A; }
   .content-bottom .hashtag {
     width: 74%;
-    margin-right: 1%;
+    height: 45px;
+    padding-top: 5px;
+    text-align: center;
+    float: left;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 16px; }
+    .content-bottom .hashtag span.hash {
+      display: inline-block;
+      width: 193px;
+      height: 30px;
+      background-image: url("../img/sprite_footer.png");
+      background-repeat: no-repeat;
+      background-position: 0 10px;
+      margin-bottom: -5px; }
+    .content-bottom .hashtag span.arrow {
+      width: 26px;
+      height: 26px;
+      background-color: rgba(0, 200, 250, 0.3);
+      float: right;
+      margin-top: 5px;
+      margin-right: 10px;
+      cursor: pointer; }
+  .content-bottom .divider {
+    width: 1%;
     height: 50px;
+    background-color: #FFF;
     float: left; }
   .content-bottom .text-to-win {
     width: 25%;
@@ -139,4 +270,5 @@ body {
   .content-bottom .ugc {
     width: 100%;
     background-color: #000;
-    height: 150px; }
+    height: 150px;
+    color: #FFF; }
