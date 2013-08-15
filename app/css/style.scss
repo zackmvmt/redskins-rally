@@ -9,6 +9,15 @@ ul { list-style: none; margin: 0; padding: 0 }
 	-webkit-border-radius: $num;
 	border-radius: $num;
 }
+@mixin grad($c1, $c2) {
+	background-color: $c1;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($c1), to($c2));
+	background: -webkit-linear-gradient(top, $c1, $c2);
+	background: -moz-linear-gradient(top, $c1, $c2);
+	background: -ms-linear-gradient(top, $c1, $c2);
+	background: -o-linear-gradient(top, $c1, $c2);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$c1', endColorstr='$c2');
+}
 
 // ----- STRUCTURE ----- \\
 body {
@@ -19,8 +28,9 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	min-width: 1080px;
-	min-height: 5 + 550 + 200px;
+	min-width: 1024px;
+	min-height: 85 + 9 + 480 + 200px;
+	overflow: hidden;
 	#map-container {
 		position: absolute;
 		z-index: 1;
@@ -31,40 +41,53 @@ body {
 		background-color: #c1c1c1;
 	}
 }
-.app-wrapper .content-left {
-	float: left;
-	width: 300px;
-	min-height: 550px;
-	height: 100%;
-	margin-top: -205px;
+.app-header {
+	height: 85px;
+	width: 100%;
+	background-image: url('../img/header.jpg');
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-color: #900B0C;
 	position: relative;
 	z-index: 10;
-	.logo {
+	border-bottom: 2px solid #F2A82A;
+}
+.content-left {
+	float: left;
+	width: 300px;
+	min-height: 480px;
+	position: relative;
+	z-index: 10;
+	height: 100%;
+	color: #FFF;
+	.featured-bar {
 		width: 100%;
-		height: 200px;
-		background-color: #ccc;
-		position: absolute;
-		top: 205px;
-	}
-	.enter-start {
-		width: 100%;
-		height: 90px;
-		background-color: #AC0002;
-		color: #FFF;
-		position: absolute;
-		top: 50%;
-		margin-top: 32px;
+		height: 120px;
+		background-color: #707070;
+		border: 1px solid #850001;
+		border-left: 0;
 	}
 	.ad-bud-left {
 		width: 100%;
 		height: 250px;
 		background-color: #707070;
-		color: #FFF;
 		position: absolute;
-		bottom: 0;
+		border: 1px solid #850001;
+		border-left: 0;
+		top: 50%;
+		margin-top: -266px;
+	}
+	.enter-start {
+		width: 100%;
+		height: 110px;
+		position: absolute;
+		bottom: 290px;
+		border: 1px solid #850001;
+		border-left: 0;
+		@include grad(#954243, #7b1314);
 	}
 }
-.app-wrapper .content-top-center {
+.content-top-center {
 	width: 468px;
 	margin: auto;
 	position: relative;
@@ -83,7 +106,7 @@ body {
 		color: #FFF;
 	}
 }
-.app-wrapper .content-right {
+.content-right {
 	float: right;
 	width: 300px;
 	height: 200px; // temporary
@@ -91,28 +114,27 @@ body {
 	position: relative;
 	z-index: 10;
 }
-.app-wrapper .content-bottom {
+.content-bottom {
 	width: 100%;
 	position: absolute;
 	bottom: 0;
 	height: 200px;
-	background-color: #D7D7D7;
 	z-index: 10;
+	border-top: 4px solid #F2A82A;
 	.hashtag {
-		width: 44%;
+		width: 74%;
+		margin-right: 1%;
 		height: 50px;
 		float: left;
-		background-color: #AC0002;
-		color: #FFF;
 	}
 	.text-to-win {
-		width: 12%;
-		height: 75px;
+		width: 25%;
+		height: 50px;
 		float: left;
-		background-color: #ccc;
-		margin-top: -25px;
-		position: relative;
-		z-index: 11;
+	}
+	.hashtag, .text-to-win {
+		@include grad(#954243, #7b1314);
+		color: #FFF;
 	}
 	.connect {
 		width: 44%;
@@ -123,5 +145,7 @@ body {
 	}
 	.ugc {
 		width: 100%;
+		background-color: #000;
+		height: 150px;
 	}
 }
