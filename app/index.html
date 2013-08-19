@@ -8,6 +8,8 @@
 	<body>
 		
 		<div class="app-wrapper">
+
+			<div class="fade"></div>
 			
 			<div id="map-container"></div>
 
@@ -17,8 +19,57 @@
 			<div class="content-left">
 				<div class="featured-bar">featured bar 300x120</div>
 				<div class="ad-bud-left">bud banner ad 300x250</div>
+
 				<div class="enter-start">
-					<p>Three (3) Lucky Winners Will Win a Pair of Tickets to the Bud Light Party Deck at FedExField for the Redskins vs. Cowboys Game on December 22nd.</p>
+					<p class="enter-intro">Three (3) Lucky Winners Will Win a Pair of Tickets to the Bud Light Party Deck at FedExField for the Redskins vs. Cowboys Game on December 22nd.</p>
+					<div class="arrow"></div>
+
+					<div class="enter-panel">
+						<div class="close">x</div>
+						<div class="enter-form">
+							<h4>fill out the fields below for your chance to win!</h4>
+							<div class="sub">You must be 21 to enter. You must enter by 12/15/2013</div>
+							<div class="required">*Required fields</div>
+							<div class="clear"></div>
+							<input type="text" id="f_name" class="half" placeholder="*First name" />
+							<input type="text" id="l_name" class="half" placeholder="*Last name" />
+							<input type="text" id="email" class="half" placeholder="*Email" />
+							<div class="dob">
+								<label>*Date of Birth</label>
+								<input type="text" id="dom_m" class="small" placeholder="MM" />
+								<input type="text" id="dom_d" class="small" placeholder="DD" />
+								<input type="text" id="dom_y" class="small" placeholder="YYYY" />
+							</div>
+							<input type="text" id="address" class="full" placeholder="Address" />
+							<div class="clear"></div>
+							<input type="text" id="city" class="half" placeholder="*City" />
+							<select id="state">
+								<option value="state">State</option>
+							</select>
+							<input type="text" id="zip" class="quarter" placeholder="*Zip Code" />
+							<div class="condition">
+								<input type="checkbox" id="old-enough" />
+								<label for="old-enough">Yes, I am 21 yesrs of age or older.</label>
+							</div>
+							<div class="condition">
+								<input type="checkbox" id="read-rules" />
+								<label for="read-rules">Yes, I have read the <a>Official Rules</a> for the Redskins Rally Sweepstakes.</label><!-- TODO: add in this link -->
+							</div>
+							<div class="submit-btn"></div>
+						</div>
+						<div class="enter-thanks">
+							<h5>thank you! you've been entered to win.</h5>
+							<p>Contest winners will be announced on December 16.</p>
+							<p>Check out our official Bud Light Rally Parties for other ways to win tickets to Redskins games and great prizes!</p>
+							<div class="divider"></div>
+							<p class="share-title">share with friends!</p>
+							<div class="enter-social">
+								<div class="facebook"></div>
+								<div class="twitter"></div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 			
