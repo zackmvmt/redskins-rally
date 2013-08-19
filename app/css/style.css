@@ -236,11 +236,13 @@ body {
       background-position: 0 10px;
       margin-bottom: -5px; }
     .content-bottom .hashtag span.arrow {
-      width: 26px;
-      height: 26px;
-      background-color: rgba(0, 200, 250, 0.3);
+      width: 28px;
+      height: 28px;
+      background-image: url("../img/sprite_arrows.png");
+      background-repeat: no-repeat;
+      background-position: -28px 0;
       float: right;
-      margin-top: 5px;
+      margin-top: 4px;
       margin-right: 10px;
       cursor: pointer; }
   .content-bottom .divider {
@@ -251,7 +253,24 @@ body {
   .content-bottom .text-to-win {
     width: 25%;
     height: 50px;
-    float: left; }
+    float: left;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 16px; }
+    .content-bottom .text-to-win .text-wrapper {
+      width: 260px;
+      margin: auto;
+      margin-top: 12px;
+      height: 25px;
+      background-image: url("../img/sprite_footer.png");
+      background-repeat: no-repeat;
+      background-position: 0 -20px; }
+    .content-bottom .text-to-win .txt {
+      display: inline-block;
+      margin-left: 19px;
+      margin-right: 75px;
+      margin-top: 3px; }
+    .content-bottom .text-to-win .deets {
+      display: inline-block; }
   .content-bottom .hashtag, .content-bottom .text-to-win {
     background-color: #954243;
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#954243), to(#7b1314));

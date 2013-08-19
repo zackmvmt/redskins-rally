@@ -233,14 +233,15 @@ body {
 			margin-bottom: -5px;
 		}
 		span.arrow {
-			width: 26px;
-			height: 26px;
-			background-color: rgba(0, 200, 250, 0.3);
+			width: 28px;
+			height: 28px;
+			background-image: url('../img/sprite_arrows.png');
+			background-repeat: no-repeat;
+			background-position: -28px 0;
 			float: right;
-			margin-top: 5px;
+			margin-top: 4px;
 			margin-right: 10px;
 			cursor: pointer;
-			// TODO: add in the arrow, theres a sprite for it
 		}
 	}
 	.divider {
@@ -253,6 +254,26 @@ body {
 		width: 25%;
 		height: 50px;
 		float: left;
+		font-family: 'Carrois Gothic SC', sans-serif;
+		font-size: 16px;
+		.text-wrapper {
+			width: 260px;
+			margin: auto;
+			margin-top: 12px;
+			height: 25px;
+			background-image: url('../img/sprite_footer.png');
+			background-repeat: no-repeat;
+			background-position: 0 -20px;
+		}
+		.txt {
+			display: inline-block;
+			margin-left: 19px;
+			margin-right: 75px;
+			margin-top: 3px;
+		}
+		.deets {
+			display: inline-block;
+		}
 	}
 	.hashtag, .text-to-win {
 		@include grad(#954243, #7b1314);
