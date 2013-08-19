@@ -410,7 +410,8 @@ body {
     height: 50px;
     float: left;
     font-family: 'Carrois Gothic SC', sans-serif;
-    font-size: 16px; }
+    font-size: 16px;
+    position: relative; }
     .content-bottom .text-to-win .text-wrapper {
       width: 260px;
       margin: auto;
@@ -426,6 +427,46 @@ body {
       margin-top: 3px; }
     .content-bottom .text-to-win .deets {
       display: inline-block; }
+    .content-bottom .text-to-win .expanded-content {
+      display: none; }
+    .content-bottom .text-to-win.expanded .expanded-content {
+      display: block;
+      height: 140px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: -154px;
+      padding: 5px 0;
+      background-color: #850001;
+      color: #FFF;
+      text-align: center; }
+      .content-bottom .text-to-win.expanded .expanded-content .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 12px;
+        text-decoration: underline;
+        cursor: pointer; }
+      .content-bottom .text-to-win.expanded .expanded-content .header {
+        font-size: 28px;
+        line-height: 30px;
+        background-image: url("../img/txt_rally.png");
+        background-repeat: no-repeat;
+        background-position: 155px 10px; }
+        .content-bottom .text-to-win.expanded .expanded-content .header span.rally {
+          display: inline-block;
+          width: 113px;
+          height: 27px;
+          margin-left: 5px;
+          margin-top: 5px; }
+      .content-bottom .text-to-win.expanded .expanded-content p {
+        margin: 0;
+        margin-top: 5px;
+        padding: 0 40px;
+        line-height: 15px; }
+      .content-bottom .text-to-win.expanded .expanded-content .disclamer {
+        font-size: 12px;
+        margin-top: 10px; }
   .content-bottom .hashtag, .content-bottom .text-to-win {
     background-color: #954243;
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#954243), to(#7b1314));

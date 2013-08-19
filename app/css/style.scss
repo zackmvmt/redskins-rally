@@ -440,6 +440,7 @@ body {
 		float: left;
 		font-family: 'Carrois Gothic SC', sans-serif;
 		font-size: 16px;
+		position: relative;
 		.text-wrapper {
 			width: 260px;
 			margin: auto;
@@ -457,6 +458,55 @@ body {
 		}
 		.deets {
 			display: inline-block;
+		}
+		.expanded-content {
+			display: none;
+		}
+		&.expanded {
+			.expanded-content {
+				display: block;
+				height: 140px;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				top: -154px;
+				padding: 5px 0;
+				background-color: #850001;
+				color: #FFF;
+				text-align: center;
+				.close {
+					position: absolute;
+					top: 5px;
+					right: 5px;
+					font-size: 12px;
+					text-decoration: underline;
+					cursor: pointer;
+				}
+				.header {
+					font-size: 28px;
+					line-height: 30px;
+					background-image: url('../img/txt_rally.png');
+					background-repeat: no-repeat;
+					background-position: 155px 10px;
+					span.rally {
+						display: inline-block;
+						width: 113px;
+						height: 27px;
+						margin-left: 5px;
+						margin-top: 5px;
+					}
+				}
+				p {
+					margin: 0;
+					margin-top: 5px;
+					padding: 0 40px;
+					line-height: 15px;
+				}
+				.disclamer {
+					font-size: 12px;
+					margin-top: 10px;
+				}
+			}
 		}
 	}
 	.hashtag, .text-to-win {
