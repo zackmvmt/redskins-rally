@@ -78,18 +78,4 @@ function EntryModel() {
 		});
 	};
 
-	/* ********** **********
-	 * SOCIAL BUTTONS
-	 * ********** ********** */
-
-	// FB share on the thank you screen
-	self.fbShare = function() {
-		// TODO: add this code in
-	};
-
-	// tweet on the thank you screen
-	self.twitterShare = function() {
-		// TODO: add this code in
-	};
-
 };
