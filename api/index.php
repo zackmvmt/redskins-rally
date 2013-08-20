@@ -38,6 +38,22 @@
 		echo json_encode(array('success' => true, 'id' => $loc->id()));
 	});
 
+	// add a new entry
+	$app->post('/entries', function() use ($app) {
+		// get the information
+		$req = $app->request();
+		$post = $req->post();
+		// make a new entry
+		$entry = ORM::for_table('entries')->create();
+		// add in fields
+		foreach ($post as $key => $value) {
+			$entry->$key = $value;
+		}
+		// save, no need for the id...just return success
+		$entry->save();
+		echo json_encode(array('success' => true));
+	});
+
 
 	/* ********** **********
 	 * PUT ROUTES

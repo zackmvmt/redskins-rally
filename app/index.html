@@ -9,7 +9,7 @@
 		
 		<div class="app-wrapper">
 
-			<div class="fade"></div>
+			<div class="fade" data-bind="visible: fade"></div>
 			
 			<div id="map-container"></div>
 
@@ -20,52 +20,52 @@
 				<div class="featured-bar">featured bar 300x120</div>
 				<div class="ad-bud-left">bud banner ad 300x250</div>
 
-				<div class="enter-start">
-					<p class="enter-intro">Three (3) Lucky Winners Will Win a Pair of Tickets to the Bud Light Party Deck at FedExField for the Redskins vs. Cowboys Game on December 22nd.</p>
-					<div class="arrow"></div>
+				<div class="enter-start expanded">
+					<p class="enter-intro" data-bind="click: openEnter">Three (3) Lucky Winners Will Win a Pair of Tickets to the Bud Light Party Deck at FedExField for the Redskins vs. Cowboys Game on December 22nd.</p>
+					<div class="arrow" data-bind="click: openEnter"></div>
 
 					<div class="enter-panel">
-						<div class="close">x</div>
-						<div class="enter-form">
+						<div class="close" data-bind="click: closeEnter">x</div>
+						<div class="enter-form" style="display: none;" data-bind="with: entryModel()">
 							<h4>fill out the fields below for your chance to win!</h4>
 							<div class="sub">You must be 21 to enter. You must enter by 12/15/2013</div>
 							<div class="required">*Required fields</div>
 							<div class="clear"></div>
-							<input type="text" id="f_name" class="half" placeholder="*First name" />
-							<input type="text" id="l_name" class="half" placeholder="*Last name" />
-							<input type="text" id="email" class="half" placeholder="*Email" />
+							<input type="text" id="f_name" class="half" placeholder="*First name" data-bind="value: f_name" />
+							<input type="text" id="l_name" class="half" placeholder="*Last name" data-bind="value: l_name" />
+							<input type="text" id="email" class="half" placeholder="*Email" data-bind="value: email" />
 							<div class="dob">
 								<label>*Date of Birth</label>
-								<input type="text" id="dom_m" class="small" placeholder="MM" />
-								<input type="text" id="dom_d" class="small" placeholder="DD" />
-								<input type="text" id="dom_y" class="small" placeholder="YYYY" />
+								<input type="text" id="dob_m" class="small" placeholder="MM" data-bind="value: dob_m" />
+								<input type="text" id="dob_d" class="small" placeholder="DD" data-bind="value: dob_d" />
+								<input type="text" id="dob_y" class="small" placeholder="YYYY" data-bind="value: dob_y" />
 							</div>
-							<input type="text" id="address" class="full" placeholder="Address" />
+							<input type="text" id="address" class="full" placeholder="Address" data-bind="value: address" />
 							<div class="clear"></div>
-							<input type="text" id="city" class="half" placeholder="*City" />
-							<select id="state">
-								<option value="state">State</option>
-							</select>
-							<input type="text" id="zip" class="quarter" placeholder="*Zip Code" />
+							<input type="text" id="city" class="half" placeholder="*City" data-bind="value: city" />
+
+							<select id="state" data-bind="options: states, value: state"></select>
+
+							<input type="text" id="zip" class="quarter" placeholder="*Zip Code" data-bind="value: zip" />
 							<div class="condition">
-								<input type="checkbox" id="old-enough" />
+								<input type="checkbox" id="old-enough" data-bind="checked: ofAge" />
 								<label for="old-enough">Yes, I am 21 yesrs of age or older.</label>
 							</div>
 							<div class="condition">
-								<input type="checkbox" id="read-rules" />
+								<input type="checkbox" id="read-rules" data-bind="checked: readRules" />
 								<label for="read-rules">Yes, I have read the <a>Official Rules</a> for the Redskins Rally Sweepstakes.</label><!-- TODO: add in this link -->
 							</div>
-							<div class="submit-btn"></div>
+							<div class="submit-btn" data-bind="click: submitEnter"></div>
 						</div>
-						<div class="enter-thanks">
+						<div class="enter-thanks" style="display: block;">
 							<h5>thank you! you've been entered to win.</h5>
 							<p>Contest winners will be announced on December 16.</p>
 							<p>Check out our official Bud Light Rally Parties for other ways to win tickets to Redskins games and great prizes!</p>
 							<div class="divider"></div>
 							<p class="share-title">share with friends!</p>
 							<div class="enter-social">
-								<div class="facebook"></div>
-								<div class="twitter"></div>
+								<div class="facebook" data-bind="click: fbShare"></div>
+								<div class="twitter" data-bind="click: twitterShare"></div>
 							</div>
 						</div>
 					</div>
@@ -134,8 +134,10 @@
 
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/knockout-2.3.0.js"></script>
 		<script type="text/javascript" src="js/jquery.ui.map.full.min.js"></script>
 		<script type="text/javascript" src="js/mapStyle.js"></script>
+		<script type="text/javascript" src="js/entry.model.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		
 	</body>
